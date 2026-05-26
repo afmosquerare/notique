@@ -1,0 +1,32 @@
+---
+---
+<div class="inline-flex items-center bg-base-300 rounded-lg border border-base-content/10 h-14 overflow-hidden">
+  <div class="px-5 h-full flex items-center justify-center">
+    <code class="font-mono text-sm font-medium text-primary tracking-wide">npm i notique</code>
+  </div>
+  <button type="button" id="copy-btn" class="w-14 shrink-0 h-full flex items-center justify-center border-l border-base-content/10 hover:bg-base-200 transition-colors" aria-label="Copy install command">
+    <span id="copy-icon" class="icon-[mdi--content-copy] text-xl text-base-content/70"></span>
+    <span id="copy-text" class="icon-[mdi--check] text-xl text-success hidden"></span>
+  </button>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const copyBtn = document.getElementById("copy-btn");
+    const copyIcon = document.getElementById("copy-icon");
+    const copyText = document.getElementById("copy-text");
+    
+    copyBtn?.addEventListener("click", () => {
+      navigator.clipboard.writeText("npm i notique");
+      if (copyIcon && copyText) {
+        copyIcon.classList.add("hidden");
+        copyText.classList.remove("hidden");
+        
+        setTimeout(() => {
+          copyIcon.classList.remove("hidden");
+          copyText.classList.add("hidden");
+        }, 2000);
+      }
+    });
+  });
+</script>

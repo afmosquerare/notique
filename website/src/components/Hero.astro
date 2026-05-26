@@ -1,0 +1,38 @@
+---
+import InstallCommand from "./InstallCommand.astro";
+---
+
+<div
+  class="order-1 lg:order-2 flex flex-col items-center lg:items-start text-center lg:text-left"
+>
+  <h1
+    class="text-6xl md:text-[6.5rem] font-bold tracking-tighter mb-4 text-base-content drop-shadow-sm leading-none animate-pop"
+  >
+    Notique<span class="text-primary">.</span>
+  </h1>
+
+  <p
+    class="text-xl md:text-2xl text-base-content/70 font-medium mb-4 leading-tight animate-pop" style="animation-delay: 100ms;"
+  >
+    A microscopic JavaScript library for toast notifications.
+  </p>
+
+  <p class="text-md md:text-lg text-base-content/50 mb-10 max-w-md animate-pop" style="animation-delay: 200ms;">
+    Framework agnostic. Zero dependencies. Tiny (~2KB). Fully accessible.
+  </p>
+
+  <div
+    class="flex flex-row flex-wrap gap-4 w-full justify-center lg:justify-start animate-pop" style="animation-delay: 300ms;"
+  >
+    <InstallCommand />
+
+    <a
+      href="https://github.com/afmosquerare/notique"
+      target="_blank"
+      class="btn bg-base-300 text-base-content border border-base-content/10 hover:bg-base-200 hover:border-base-content/20 h-14 px-6 rounded-lg flex items-center justify-center gap-2 transition-colors"
+    >
+      <span class="icon-[mdi--github] text-2xl"></span>
+      See documentation
+    </a>
+  </div>
+</div>

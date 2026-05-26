@@ -1,6 +1,6 @@
 {
   "name": "notique",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "The sub-2kb, framework-agnostic, toast notification library.",
   "type": "module",
   "main": "./dist/notique.umd.js",

@@ -1,0 +1,249 @@
+---
+
+---
+
+<div
+  class="order-2 lg:order-1 card w-full bg-base-200 border border-base-300 rounded-2xl overflow-hidden animate-pop"
+  style="animation-delay: 400ms;"
+>
+  <div class="card-body p-6 md:p-8">
+    <h2 class="card-title text-2xl font-bold mb-6 text-base-content/90">
+      Playground
+    </h2>
+
+    <form id="playground-form" class="space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="form-control">
+          <label class="label"
+            ><span class="label-text font-bold text-base-content/70"
+              >Message</span
+            ></label
+          >
+          <input
+            type="text"
+            id="p-msg"
+            class="input input-bordered w-full bg-base-300 border-none focus:bg-base-100 focus:ring-1 focus:ring-primary rounded-lg"
+            value="Payment successful"
+          />
+        </div>
+
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-bold text-base-content/70"
+              >Description</span
+            >
+            <span class="label-text-alt text-base-content/40 font-bold"
+              >(Optional)</span
+            >
+          </label>
+          <input
+            type="text"
+            id="p-desc"
+            class="input input-bordered w-full bg-base-300 border-none focus:bg-base-100 focus:ring-1 focus:ring-primary rounded-lg"
+            value="We've sent a receipt to your email address."
+          />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="">
+          <label class="label"
+            ><span class="label-text font-bold text-base-content/70"
+              >Position</span
+            ></label
+          >
+          <select
+            id="p-pos"
+            class="select select-bordered w-full bg-base-300 border-none focus:bg-base-100 focus:ring-1 focus:ring-primary rounded-lg appearance-none"
+          >
+            <option value="top-left">Top Left</option>
+            <option value="top-center">Top Center</option>
+            <option value="top-right">Top Right</option>
+            <option value="bottom-left">Bottom Left</option>
+            <option value="bottom-center">Bottom Center</option>
+            <option value="bottom-right" selected>Bottom Right</option>
+          </select>
+        </div>
+
+        <div class="form-control">
+          <label class="label"
+            ><span class="label-text font-bold text-base-content/70"
+              >Duration (ms)</span
+            ></label
+          >
+          <input
+            type="number"
+            id="p-dur"
+            class="input input-bordered w-full bg-base-300 border-none focus:bg-base-100 focus:ring-1 focus:ring-primary rounded-lg"
+            value="4000"
+          />
+        </div>
+      </div>
+
+      <div class="form-control">
+        <label class="label"
+          ><span class="label-text font-bold text-base-content/70">Type</span
+          ></label
+        >
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2">
+          <label class="cursor-pointer">
+            <input
+              type="radio"
+              name="p-type"
+              value="success"
+              class="peer hidden"
+              checked
+            />
+            <div
+              class="py-3 bg-base-300 text-center rounded-lg text-sm font-bold peer-checked:bg-success peer-checked:text-success-content transition-colors"
+            >
+              Success
+            </div>
+          </label>
+          <label class="cursor-pointer">
+            <input
+              type="radio"
+              name="p-type"
+              value="error"
+              class="peer hidden"
+            />
+            <div
+              class="py-3 bg-base-300 text-center rounded-lg text-sm font-bold peer-checked:bg-error peer-checked:text-error-content transition-colors"
+            >
+              Error
+            </div>
+          </label>
+          <label class="cursor-pointer">
+            <input
+              type="radio"
+              name="p-type"
+              value="warning"
+              class="peer hidden"
+            />
+            <div
+              class="py-3 bg-base-300 text-center rounded-lg text-sm font-bold peer-checked:bg-warning peer-checked:text-warning-content transition-colors"
+            >
+              Warning
+            </div>
+          </label>
+          <label class="cursor-pointer">
+            <input
+              type="radio"
+              name="p-type"
+              value="info"
+              class="peer hidden"
+            />
+            <div
+              class="py-3 bg-base-300 text-center rounded-lg text-sm font-bold peer-checked:bg-info peer-checked:text-info-content transition-colors"
+            >
+              Info
+            </div>
+          </label>
+          <label class="cursor-pointer col-span-2 sm:col-span-1">
+            <input
+              type="radio"
+              name="p-type"
+              value="custom"
+              class="peer hidden"
+            />
+            <div
+              class="py-3 bg-base-300 text-center rounded-lg text-sm font-bold peer-checked:bg-primary peer-checked:text-primary-content transition-colors"
+            >
+              Custom
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex flex-row gap-6 rounded-lg">
+        <label class="cursor-pointer label p-0 gap-3 justify-start">
+          <input
+            type="checkbox"
+            id="p-prog"
+            checked
+            class="checkbox checkbox-primary checkbox-sm rounded"
+          />
+          <span class="label-text font-bold text-base-content/90"
+            >Progress Bar</span
+          >
+        </label>
+
+        <label class="cursor-pointer label p-0 gap-3 justify-start">
+          <input
+            type="checkbox"
+            id="p-diss"
+            checked
+            class="checkbox checkbox-primary checkbox-sm rounded"
+          />
+          <span class="label-text font-bold text-base-content/90"
+            >Dismissible</span
+          >
+        </label>
+      </div>
+    </form>
+
+    <div class="pt-2">
+      <button
+        type="submit"
+        form="playground-form"
+        class="btn w-full h-14 bg-primary text-primary-content hover:bg-primary/90 border-none text-lg rounded-lg"
+      >
+        Fire Notification
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { notique } from "notique";
+
+  notique.config({
+    duration: 4000,
+  });
+
+  const form = document.getElementById("playground-form") as HTMLFormElement;
+
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const msg = (document.getElementById("p-msg") as HTMLInputElement).value;
+    const descRaw = (document.getElementById("p-desc") as HTMLInputElement)
+      .value;
+    const desc = descRaw.trim() !== "" ? descRaw : undefined;
+    const dur =
+      parseInt((document.getElementById("p-dur") as HTMLInputElement).value) ||
+      4000;
+
+    const pos = (document.getElementById("p-pos") as HTMLSelectElement).value;
+    const type = (
+      document.querySelector('input[name="p-type"]:checked') as HTMLInputElement
+    ).value as any;
+    const prog = (document.getElementById("p-prog") as HTMLInputElement)
+      .checked;
+    const diss = (document.getElementById("p-diss") as HTMLInputElement)
+      .checked;
+
+    if (type === "custom") {
+      notique.custom({
+        message: msg,
+        description: desc,
+        duration: dur,
+        position: pos as any,
+        showProgress: prog,
+        dismiss: diss,
+        color: "#2a2a2a",
+        textColor: "#f38ba8",
+        icon: '<span class="icon-[mdi--cards-heart] text-xl" style="color: #f38ba8;"></span>',
+      });
+    } else {
+      notique[type]({
+        message: msg,
+        description: desc,
+        duration: dur,
+        position: pos as any,
+        showProgress: prog,
+        dismiss: diss,
+      });
+    }
+  });
+</script>

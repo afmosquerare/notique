@@ -1,0 +1,56 @@
+---
+import "../styles.css";
+import Playground from "../components/Playground.astro";
+import Hero from "../components/Hero.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<html lang="en" data-theme="notique">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Notique | JavaScript Toast Notifications Library</title>
+    <meta
+      name="description"
+      content="A microscopic (~2KB), zero-dependency, and fully accessible JavaScript library for beautiful toast notifications."
+    />
+    <meta
+      name="keywords"
+      content="notique, toast notifications, javascript notifier, notifier js, alert library, zero dependency toast, web notifications, UI notifications"
+    />
+    <meta name="author" content="afmosquerare" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Notique | JavaScript Toast Notifications"
+    />
+    <meta
+      property="og:description"
+      content="A microscopic (~2KB), zero-dependency, and fully accessible JavaScript library for beautiful toast notifications."
+    />
+    <meta
+      property="og:image"
+      content="https://notique.andresrengifo.com/og-image.png"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="min-h-screen bg-base-100 text-base-content font-sans flex flex-col items-center justify-center p-4 md:p-12 overflow-x-hidden"
+  >
+    <main
+      class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center"
+    >
+      <Playground />
+      <Hero />
+    </main>
+
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,66 @@
+@import "tailwindcss";
+@plugin "@iconify/tailwind4";
+@plugin "daisyui";
+
+
+
+* {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+@plugin "daisyui/theme" {
+  name: "notique";
+  --color-base-100: #1e1e2e;
+  --color-base-200: #27273a;
+  --color-base-300: #313244;
+  --color-base-content: #cdd6f4;
+
+  --color-primary: #f38ba8;
+  --color-primary-content: #1e1e2e;
+
+  --color-neutral: #45475a;
+  --color-neutral-content: #cdd6f4;
+
+  --color-info: #89b4fa;
+  --color-success: #a6e3a1;
+  --color-warning: #f9e2af;
+  --color-error: #f38ba8;
+
+}
+
+
+
+@utility input {
+  @apply bg-base-200 border-base-300 text-base-content rounded focus:outline-none focus:ring-0 focus:border-primary;
+}
+
+@utility select {
+  @apply outline-none;
+}
+
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility animate-pop {
+  animation: pop-in 0.5s ease-out forwards;
+  opacity: 0;
+}

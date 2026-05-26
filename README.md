@@ -13,7 +13,7 @@
 
 ## Features
 
-- **~1.89kb gzipped** — lighter than Notyf, lighter than your CSS reset.
+- **~1.89kb gzipped** — microscopic footprint, lighter than your CSS reset.
 - **Zero dependencies** — pure TypeScript, no frameworks required.
 - **4 built-in types** — success, error, info, warning.
 - **6 positions** — top/bottom × left/right/center.
