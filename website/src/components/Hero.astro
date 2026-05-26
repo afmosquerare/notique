@@ -3,7 +3,7 @@ import InstallCommand from "./InstallCommand.astro";
 ---
 
 <div
-  class="order-1 lg:order-2 flex flex-col items-center lg:items-start text-center lg:text-left"
+  class="order-1 lg:order-2 flex flex-col text-start md:text-center lg:items-start lg:text-left"
 >
   <h1
     class="text-6xl md:text-[6.5rem] font-bold tracking-tighter mb-4 text-base-content drop-shadow-sm leading-none animate-pop"
@@ -12,27 +12,34 @@ import InstallCommand from "./InstallCommand.astro";
   </h1>
 
   <p
-    class="text-xl md:text-2xl text-base-content/70 font-medium mb-4 leading-tight animate-pop" style="animation-delay: 100ms;"
+    class="text-xl md:text-2xl text-base-content/70 font-medium mb-4 leading-tight animate-pop"
+    style="animation-delay: 100ms;"
   >
     A microscopic JavaScript library for toast notifications.
   </p>
 
-  <p class="text-md md:text-lg text-base-content/50 mb-10 max-w-md animate-pop" style="animation-delay: 200ms;">
+  <p
+    class="text-md md:text-lg text-base-content/50 md:mx-auto lg:mx-0 mb-10 max-w-md animate-pop"
+    style="animation-delay: 200ms;"
+  >
     Framework agnostic. Zero dependencies. Tiny (~2KB). Fully accessible.
   </p>
 
   <div
-    class="flex flex-row flex-wrap gap-4 w-full justify-center lg:justify-start animate-pop" style="animation-delay: 300ms;"
+    class="flex flex-col gap-4 w-full max-w-[320px] md:mx-auto lg:mx-0 items-center lg:items-start animate-pop"
+    style="animation-delay: 300ms;"
   >
-    <InstallCommand />
+    <div class="w-full">
+      <InstallCommand />
+    </div>
 
     <a
       href="https://github.com/afmosquerare/notique"
       target="_blank"
-      class="btn bg-base-300 text-base-content border border-base-content/10 hover:bg-base-200 hover:border-base-content/20 h-14 px-6 rounded-lg flex items-center justify-center gap-2 transition-colors"
+      class="btn w-full bg-base-200 hover:bg-base-300 text-base-content border border-base-content/10 hover:border-base-content/20 h-[48px] text-sm font-bold flex items-center justify-center gap-2 transition-all rounded-xl shadow-sm"
     >
-      <span class="icon-[mdi--github] text-2xl"></span>
-      See documentation
+      <span class="icon-[mdi--github] text-xl"></span>
+      View on GitHub
     </a>
   </div>
 </div>

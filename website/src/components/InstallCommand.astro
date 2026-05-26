@@ -1,13 +1,65 @@
 ---
+
 ---
-<div class="inline-flex items-center bg-base-300 rounded-lg border border-base-content/10 h-14 overflow-hidden">
-  <div class="px-5 h-full flex items-center justify-center">
-    <code class="font-mono text-sm font-medium text-primary tracking-wide">npm i notique</code>
+
+<div
+  class="bg-base-200/30 backdrop-blur-md rounded-xl border border-base-content/10 shadow-sm w-full sm:w-[320px] overflow-hidden flex flex-col"
+>
+  <div
+    class="flex items-center justify-between border-b border-base-content/10 bg-base-300/30 px-2"
+  >
+    <div role="tablist" class="tabs tabs-boxed bg-transparent p-0 gap-1 w-full">
+      <button
+        role="tab"
+        class="tab tab-active rounded-md px-3 h-7 min-h-0 text-xs font-semibold transition-all"
+        data-pm="npm">npm</button
+      >
+      <button
+        role="tab"
+        class="tab hover:bg-base-content/5 rounded-md px-3 h-7 min-h-0 text-xs font-semibold text-base-content/60 transition-all"
+        data-pm="pnpm">pnpm</button
+      >
+      <button
+        role="tab"
+        class="tab hover:bg-base-content/5 rounded-md px-3 h-7 min-h-0 text-xs font-semibold text-base-content/60 transition-all"
+        data-pm="yarn">yarn</button
+      >
+      <button
+        role="tab"
+        class="tab hover:bg-base-content/5 rounded-md px-3 h-7 min-h-0 text-xs font-semibold text-base-content/60 transition-all"
+        data-pm="bun">bun</button
+      >
+    </div>
   </div>
-  <button type="button" id="copy-btn" class="w-14 shrink-0 h-full flex items-center justify-center border-l border-base-content/10 hover:bg-base-200 transition-colors" aria-label="Copy install command">
-    <span id="copy-icon" class="icon-[mdi--content-copy] text-xl text-base-content/70"></span>
-    <span id="copy-text" class="icon-[mdi--check] text-xl text-success hidden"></span>
-  </button>
+
+  <div
+    class="px-4 py-3 flex items-center justify-between gap-4 group hover:bg-base-200/50 transition-colors"
+  >
+    <div class="flex items-center gap-2 overflow-x-auto">
+      <span class="text-base-content/30 select-none font-mono text-sm font-bold"
+        >$</span
+      >
+      <code
+        id="cmd-text"
+        class="font-mono text-sm font-semibold text-base-content/90 tracking-wide whitespace-nowrap"
+        >npm install notique</code
+      >
+    </div>
+
+    <button
+      type="button"
+      id="copy-btn"
+      class="w-8 h-8 shrink-0 flex items-center justify-center rounded-md bg-base-300/50 hover:bg-base-content/10 text-base-content/50 hover:text-base-content/90 transition-colors border border-base-content/5"
+      aria-label="Copy install command"
+    >
+      <span
+        id="copy-icon"
+        class="icon-[mdi--content-copy] text-sm group-hover:scale-110 transition-transform duration-200"
+      ></span>
+      <span id="copy-text" class="icon-[mdi--check] text-sm text-success hidden"
+      ></span>
+    </button>
+  </div>
 </div>
 
 <script>
@@ -15,13 +67,49 @@
     const copyBtn = document.getElementById("copy-btn");
     const copyIcon = document.getElementById("copy-icon");
     const copyText = document.getElementById("copy-text");
-    
+    const cmdText = document.getElementById("cmd-text");
+    const tabs = document.querySelectorAll("button[role='tab']");
+
+    const commands = {
+      npm: "npm install notique",
+      pnpm: "pnpm add notique",
+      yarn: "yarn add notique",
+      bun: "bun add notique",
+    };
+
+    let currentCmd = commands.npm;
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", (e) => {
+        // Reset active state
+        tabs.forEach((t) => {
+          t.classList.remove("tab-active");
+          t.classList.add("hover:bg-base-content/5", "text-base-content/60");
+        });
+
+        // Set active state
+        const target = e.currentTarget as HTMLButtonElement;
+        target.classList.add("tab-active");
+        target.classList.remove(
+          "hover:bg-base-content/5",
+          "text-base-content/60",
+        );
+
+        // Update command
+        const pm = target.getAttribute("data-pm");
+        if (pm && commands[pm as keyof typeof commands]) {
+          currentCmd = commands[pm as keyof typeof commands];
+          if (cmdText) cmdText.textContent = currentCmd;
+        }
+      });
+    });
+
     copyBtn?.addEventListener("click", () => {
-      navigator.clipboard.writeText("npm i notique");
+      navigator.clipboard.writeText(currentCmd);
       if (copyIcon && copyText) {
         copyIcon.classList.add("hidden");
         copyText.classList.remove("hidden");
-        
+
         setTimeout(() => {
           copyIcon.classList.remove("hidden");
           copyText.classList.add("hidden");
