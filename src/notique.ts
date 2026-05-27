@@ -32,7 +32,7 @@ const cr = (t: string) => document.createElement(t);
 
 function show(raw: any, fallback: string) {
   if (typeof window === 'undefined') return;
-  
+
   if (!injected++) {
     document.head.insertAdjacentHTML('afterbegin', `<style>
       .nq-c{position:fixed;display:flex;flex-direction:column;gap:12px;z-index:9999;pointer-events:none}
@@ -65,7 +65,7 @@ function show(raw: any, fallback: string) {
   }
 
   const el = cr('div');
-  el.className = `notique nq-t ${o.className || ''}`;
+  el.className = `notique notique-${type} nq-t ${o.className || ''}`;
   el.setAttribute('role', 'alert');
   el.setAttribute('aria-live', type === 'error' || type === 'warning' ? 'assertive' : 'polite');
   el.style.cssText = `background:${o.color ?? defColor};transform:translateY(${pos[0] === 't' ? '-' : ''}16px) scale(.95)`;
@@ -123,7 +123,7 @@ export interface NotiqueMethod {
 }
 
 const method = (type: string): NotiqueMethod => (a?: any, b?: any, c?: any) => show(
-  typeof a === 'string' ? (typeof b === 'string' ? { message: a, description: b, ...(c||{}) } : { message: a, ...(b||{}) }) : a,
+  typeof a === 'string' ? (typeof b === 'string' ? { message: a, description: b, ...(c || {}) } : { message: a, ...(b || {}) }) : a,
   type
 );
 

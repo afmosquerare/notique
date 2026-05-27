@@ -4,7 +4,7 @@
   
   <p>
     <a href="https://www.npmjs.com/package/notique"><img alt="NPM Version" src="https://img.shields.io/npm/v/notique?color=blue&style=flat-square"></a>
-    <img alt="Gzip Size" src="https://img.shields.io/badge/gzip-1.89kb-brightgreen?style=flat-square">
+    <img alt="Gzip Size" src="https://img.shields.io/badge/gzip-1.91kb-brightgreen?style=flat-square">
     <img alt="License" src="https://img.shields.io/badge/license-MIT-blue?style=flat-square">
   </p>
 </div>
@@ -13,7 +13,7 @@
 
 ## Features
 
-- **~1.89kb gzipped** — microscopic footprint, lighter than your CSS reset.
+- **~1.91kb gzipped** — microscopic footprint, lighter than your CSS reset.
 - **Zero dependencies** — pure TypeScript, no frameworks required.
 - **4 built-in types** — success, error, info, warning.
 - **6 positions** — top/bottom × left/right/center.
@@ -99,6 +99,35 @@ notique.config({
   showProgress: false
 });
 ```
+
+---
+
+## Custom Theming
+
+Notique automatically injects dynamic type classes (`.notique-success`, `.notique-error`, etc.) onto the toast container, making global CSS overrides effortless.
+
+For example, to create a completely custom brutalist/dark theme:
+
+```css
+/* 1. Reset default borders and shadows */
+.notique {
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* 2. Theme specific types */
+.notique-error {
+  background-color: #1a1a1a !important; /* Overrides inline background */
+  border: 1px solid #ef4444;
+}
+
+.notique-success {
+  background-color: #1a1a1a !important;
+  border: 1px solid #10b981;
+}
+```
+
+> **Note:** Because Notique applies a default background color via an inline style (`style="background: #..."`) to ensure it works without external CSS, you must use `!important` when overriding the `background-color`.
 
 ---
 
