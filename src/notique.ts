@@ -41,13 +41,13 @@ function show(raw: any, fallback: string) {
       .nq-tc,.nq-bc{left:50%;transform:translateX(-50%);align-items:center}
       .nq-tr,.nq-tl,.nq-tc{top:20px}
       .nq-br,.nq-bl,.nq-bc{bottom:20px}
-      .nq-t{max-width:600px;pointer-events:auto;position:relative;overflow:hidden;padding:12px 16px;border-radius:8px;color:#fff;font:500 14px/1.4 system-ui,sans-serif;box-shadow:0 4px 12px rgba(0,0,0,.15);display:flex;align-items:flex-start;gap:10px;opacity:0;transition:opacity .3s,transform .3s cubic-bezier(.175,.885,.32,1.27)}
+      .nq-t{min-width:300px;max-width:600px;pointer-events:auto;position:relative;overflow:hidden;padding:12px 16px;border-radius:8px;color:#fff;font:500 14px/1.4 system-ui,sans-serif;box-shadow:0 4px 12px rgba(0,0,0,.15);display:flex;align-items:flex-start;gap:10px;opacity:0;transition:opacity .3s,transform .3s cubic-bezier(.175,.885,.32,1.27)}
       .nq-s{opacity:1!important;transform:none!important}
       .nq-i{flex-shrink:0;margin-top:1px}
       .nq-i svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
       .nq-p{position:absolute;bottom:0;left:0;height:3px;background:rgba(255,255,255,.35);animation:nq-p linear forwards}
       @keyframes nq-p{from{width:100%}to{width:0}}
-      @media(max-width:480px){.nq-c{left:12px!important;right:12px!important;transform:none!important;align-items:stretch!important}}
+      @media(max-width:480px){.nq-c{left:12px!important;right:12px!important;transform:none!important;align-items:stretch!important}.nq-t{min-width:0}}
     </style>`);
   }
 
